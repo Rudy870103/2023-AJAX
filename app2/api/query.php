@@ -24,14 +24,14 @@ switch($_GET['do']){
             }
         }
         $in=join(',',$nums);
-        $users=$Student->q("select `name`,`uni_id`,`school_num`,`birthday` from `students` where `id` in($in)");
+        $users=$Student->q("select `id`,`name`,`uni_id`,`school_num`,`birthday` from `students` where `id` in($in)");
 
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode($users);
             
     break;
     case 'classes':
-        $classes=$Class->q("select `id`,`code`,`name` from `classes`");
+        $classes=$Class->q("select `code`,`name` from `classes`");
         header('Content-Type: application/json; charset=utf-8');        
         echo json_encode($classes);
     break;
